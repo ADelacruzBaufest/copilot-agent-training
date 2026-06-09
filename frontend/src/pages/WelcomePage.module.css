@@ -1,0 +1,277 @@
+/* WelcomePage — BMW Corporate Design */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-canvas);
+}
+
+/* ── Top Navigation ──────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background-color: var(--color-canvas);
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.navInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.navUser {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  color: var(--color-ink);
+}
+
+/* ── Hero Band (Dark) ────────────────────────────────── */
+.hero {
+  background-color: var(--color-surface-dark);
+  color: var(--color-on-dark);
+  padding: var(--spacing-section) var(--spacing-xl);
+}
+
+.heroContent {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.heroTitle {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-on-dark);
+}
+
+.heroSub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--color-on-dark-soft);
+  max-width: 560px;
+}
+
+/* ── Feature Band ────────────────────────────────────── */
+.featureBand {
+  background-color: var(--color-canvas);
+  padding: var(--spacing-section) var(--spacing-xl);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-xxl);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+/* ── Model Card ──────────────────────────────────────── */
+.modelCard {
+  background-color: var(--color-canvas);
+  border-radius: var(--rounded-none);
+  overflow: hidden;
+}
+
+.modelCardPhoto {
+  background-color: var(--color-surface-card);
+  width: 100%;
+  overflow: hidden;
+}
+
+.modelCardBody {
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.modelName {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+.modelTag {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--color-body);
+}
+
+.learnMore {
+  display: inline-block;
+  margin-top: var(--spacing-xs);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 1.5px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+/* ── CTA Band ────────────────────────────────────────── */
+.ctaBand {
+  background-color: var(--color-surface-dark);
+  padding: var(--spacing-section) var(--spacing-xl);
+}
+
+.ctaContent {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-lg);
+}
+
+.ctaTitle {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-on-dark);
+}
+
+.ctaSub {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--color-on-dark-soft);
+  max-width: 480px;
+}
+
+/* ── Buttons ─────────────────────────────────────────── */
+.btnSecondary {
+  height: 48px;
+  padding: 14px 32px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline-strong);
+  border-radius: var(--rounded-none);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btnSecondary:hover {
+  background-color: var(--color-surface-strong);
+}
+
+.btnSecondaryDark {
+  display: inline-block;
+  height: 48px;
+  padding: 14px 32px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--color-on-dark);
+  background-color: transparent;
+  border: 1px solid var(--color-on-dark);
+  border-radius: var(--rounded-none);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btnSecondaryDark:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+  background-color: var(--color-surface-soft);
+  padding: 64px var(--spacing-xl);
+}
+
+.footerInner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.footerLinks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.footerGroup {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--color-ink);
+  text-transform: uppercase;
+}
+
+.footerCopy {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-hairline);
+  padding-top: var(--spacing-lg);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .sectionTitle {
+    font-size: 32px;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .footerLinks {
+    grid-template-columns: 1fr;
+  }
+
+  .navUser {
+    display: none;
+  }
+}
