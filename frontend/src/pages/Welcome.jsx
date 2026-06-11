@@ -1,6 +1,57 @@
 import { useNavigate } from 'react-router-dom';
 import { logout, getToken, decodeToken } from '../services/auth';
 
+const certifications = [
+  {
+    exam: 'AI-103',
+    title: 'Azure AI App & Agent Developer',
+    category: 'AI & Cloud',
+    description: 'Diseña y desarrolla aplicaciones generativas, agentes y flujos de trabajo multi-agente con Azure AI.',
+    color: 'var(--color-accent-blue)',
+    glow: 'var(--color-accent-blue-glow)',
+  },
+  {
+    exam: 'AI-200',
+    title: 'Azure AI Cloud Developer',
+    category: 'AI & Cloud',
+    description: 'Soluciones de IA con Azure Compute, bases de datos vectoriales, pipelines y funciones serverless.',
+    color: 'var(--color-accent-blue)',
+    glow: 'var(--color-accent-blue-glow)',
+  },
+  {
+    exam: 'AI-300',
+    title: 'MLOps Engineer',
+    category: 'Machine Learning',
+    description: 'Implementación y operacionalización de soluciones de ML y GenAI en entornos de producción.',
+    color: 'var(--color-accent-green)',
+    glow: 'var(--color-accent-green-glow)',
+  },
+  {
+    exam: 'AI-901',
+    title: 'Azure AI Fundamentals',
+    category: 'Fundamentos',
+    description: 'Base para construir aplicaciones y agentes de IA en la plataforma Azure (actualizado 2026).',
+    color: 'var(--color-accent-yellow)',
+    glow: 'rgba(255,197,61,0.18)',
+  },
+  {
+    exam: 'SC-500',
+    title: 'Cloud & AI Security Engineer',
+    category: 'Seguridad',
+    description: 'Seguridad para entornos cloud y modelos de IA: protección, gobernanza y cumplimiento normativo.',
+    color: 'var(--color-accent-red)',
+    glow: 'var(--color-accent-red-glow)',
+  },
+  {
+    exam: 'AB-900',
+    title: 'Copilot & Agent Administration',
+    category: 'Microsoft 365',
+    description: 'Administración de entornos Microsoft 365 potenciados con IA, Copilot y agentes inteligentes.',
+    color: 'var(--color-accent-orange)',
+    glow: 'var(--color-accent-orange-glow)',
+  },
+];
+
 const styles = {
   page: {
     minHeight: '100vh',
@@ -52,8 +103,8 @@ const styles = {
   main: {
     flex: 1,
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
     padding: 'var(--spacing-section) var(--spacing-xl)',
     position: 'relative',
     overflow: 'hidden',
@@ -134,6 +185,99 @@ const styles = {
     wordBreak: 'break-all',
     lineHeight: 1.6,
   },
+  certsSection: {
+    width: '100%',
+    maxWidth: '1080px',
+    position: 'relative',
+    zIndex: 1,
+    marginTop: 'var(--spacing-xxxl)',
+  },
+  certsSectionHeader: {
+    textAlign: 'center',
+    marginBottom: 'var(--spacing-xxl)',
+  },
+  certsSectionLabel: {
+    display: 'inline-block',
+    fontSize: '12px',
+    fontWeight: 500,
+    color: 'var(--color-charcoal)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.08em',
+    marginBottom: 'var(--spacing-md)',
+  },
+  certsSectionTitle: {
+    fontSize: '24px',
+    fontWeight: 500,
+    color: 'var(--color-ink)',
+    letterSpacing: '-0.4px',
+    lineHeight: 1.3,
+    margin: 0,
+  },
+  certsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gap: 'var(--spacing-lg)',
+  },
+  certCard: {
+    backgroundColor: 'var(--color-surface-card)',
+    border: '1px solid var(--color-hairline-strong)',
+    borderRadius: 'var(--rounded-lg)',
+    padding: 'var(--spacing-xxl)',
+    textAlign: 'left',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 'var(--spacing-md)',
+  },
+  certCardTop: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  certExamBadge: {
+    fontSize: '11px',
+    fontWeight: 600,
+    fontFamily: '"Geist Mono", "Fira Code", monospace',
+    padding: '2px 8px',
+    borderRadius: 'var(--rounded-full)',
+    border: '1px solid var(--color-hairline-strong)',
+    color: 'var(--color-charcoal)',
+    backgroundColor: 'var(--color-surface-elevated)',
+    letterSpacing: '0.03em',
+  },
+  certCardTitle: {
+    fontSize: '16px',
+    fontWeight: 500,
+    color: 'var(--color-ink)',
+    letterSpacing: '-0.3px',
+    lineHeight: 1.3,
+    margin: 0,
+  },
+  certCardDescription: {
+    fontSize: '14px',
+    fontWeight: 400,
+    color: 'var(--color-body)',
+    lineHeight: 1.6,
+    margin: 0,
+    flexGrow: 1,
+  },
+  certCardFooter: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 'var(--spacing-xs)',
+    paddingTop: 'var(--spacing-md)',
+    borderTop: '1px solid var(--color-hairline)',
+  },
+  certCategoryDot: {
+    width: '6px',
+    height: '6px',
+    borderRadius: 'var(--rounded-full)',
+    flexShrink: 0,
+  },
+  certCategoryLabel: {
+    fontSize: '12px',
+    fontWeight: 400,
+    color: 'var(--color-charcoal)',
+  },
 };
 
 export default function Welcome() {
@@ -185,6 +329,33 @@ export default function Welcome() {
             <p style={styles.cardValue}>{expiresAt}</p>
           </div>
         </div>
+
+        <section style={styles.certsSection} aria-labelledby="certs-heading">
+          <div style={styles.certsSectionHeader}>
+            <span style={styles.certsSectionLabel}>Microsoft Learn 2026</span>
+            <h2 id="certs-heading" style={styles.certsSectionTitle}>
+              Certificaciones Microsoft destacadas
+            </h2>
+          </div>
+          <div style={styles.certsGrid}>
+            {certifications.map((cert) => (
+              <article key={cert.exam} style={styles.certCard}>
+                <div style={styles.certCardTop}>
+                  <span style={styles.certExamBadge}>{cert.exam}</span>
+                </div>
+                <h3 style={styles.certCardTitle}>{cert.title}</h3>
+                <p style={styles.certCardDescription}>{cert.description}</p>
+                <div style={styles.certCardFooter}>
+                  <span
+                    style={{ ...styles.certCategoryDot, backgroundColor: cert.color }}
+                    aria-hidden="true"
+                  />
+                  <span style={styles.certCategoryLabel}>{cert.category}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </main>
     </div>
   );
